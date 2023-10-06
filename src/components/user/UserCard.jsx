@@ -1,5 +1,5 @@
 import styles from "./user.module.css";
-
+import { Button } from "../index";
 const UserCard = ({ item, deleteUser }) => {
   const deleteHandler = () => {
     deleteUser(item.id);
@@ -12,9 +12,10 @@ const UserCard = ({ item, deleteUser }) => {
         <li>city:{item.city}</li>
       </ul>
       <div className="btnGroup">
-        <div className="btn" onClick={deleteHandler}>
+        <Button>Edit</Button>
+        <Button onClick={deleteHandler} color="danger">
           Delete
-        </div>
+        </Button>
       </div>
     </div>
   );

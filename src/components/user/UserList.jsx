@@ -1,10 +1,10 @@
 import UserCard from "./UserCard";
 
 const UserList = ({ persons, deleteUser }) => {
-  const personHandler = persons.map((el) => (
+  const renderList = persons.map((el) => (
     <UserCard key={el.id} item={el} deleteUser={deleteUser} />
   ));
-  return <>{personHandler}</>;
+  return <>{renderList}</>;
 };
 
 export default UserList;

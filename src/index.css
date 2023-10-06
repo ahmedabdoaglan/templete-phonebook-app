@@ -10,8 +10,6 @@
   top: 50%;
   right: 10px;
 }
-.btn {
-  border: 1px solid black;
-  padding: 2px;
-  cursor: pointer;
+.btnGroup button:first-child {
+  margin-right: 2px;
 }
