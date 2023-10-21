@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Input } from "./../../index";
-const UserForm = ({ insertUser }) => {
-  const [input, setInput] = useState({ name: "", phone: "", city: "" });
+const UserForm = ({ saveUser, selectedUser }) => {
+  const [input, setInput] = useState({ name: "", phone: "", city: "", id: "" });
+
+  useEffect(() => {
+    if (selectedUser) {
+      setInput((prev) => ({ ...prev, ...selectedUser }));
+    } else {
+      setInput((prev) => ({ ...prev, id: Math.floor(Math.random() * 100) }));
+    }
+  }, [selectedUser]);
 
   const inputHandler = (e) => {
     const inputName = e.target.name;
@@ -11,8 +19,9 @@ const UserForm = ({ insertUser }) => {
 
   const formHandler = (e) => {
     e.preventDefault();
-    insertUser(input);
-    setInput({ name: "", phone: "", city: "" });
+
+    saveUser(input);
+    setInput({ name: "", phone: "", city: "", id: "" });
   };
 
   return (
